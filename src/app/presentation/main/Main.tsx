@@ -14,7 +14,6 @@ import ReactBottomNavBar from '../widgets/bottomNavigationBar/reactNavigation/Re
 import normDimens from '../../../resources/dimens/normDimens';
 import NavigationRoutes from '../../navigation/NavigationRoutes';
 import BackPressUtils from '../../../utils/BackPressUtils';
-import Search from '../kino/Kino';
 import ColorUtils from '../../../resources/colors/ColorUtils';
 import Home from '../home/Home';
 import Surfing from '../surfing/Surfing';
@@ -22,6 +21,7 @@ import Kino from '../kino/Kino';
 import ImageView from '../widgets/imageView/ImageView';
 import Button from '../widgets/button/Button';
 import normFonts, { FontWeight } from '../../../resources/dimens/normFonts';
+import strings from '../../../resources/strings/strings';
 
 interface Props {}
 
@@ -124,44 +124,22 @@ const Main = (props: Props) => {
 
     return (
         <SafeArea>
-            <View
-                style={{
-                    width: normDimens.SCREEN_WIDTH,
-                    height: normDimens.DIMEN_80,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    backgroundColor: colorCode.white,
-                }}>
+            <View style={styles.container2}>
                 <ImageView
                     style={{ width: normDimens.DIMEN_94, height: normDimens.DIMEN_36 }}
                     source={imageFile.IC_ALOHA}
                 />
             </View>
             <Button
-                    buttonText="Book a trip"
-                    buttonActiveTextFontWeight={FontWeight._700}
-                    buttonActiveStyle={{
-                        width: normDimens.DIMEN_328,
-                        height: normDimens.DIMEN_40,
-                        borderRadius: normDimens.DIMEN_8,
-                        borderWidth: normDimens.DIMEN_2,
-                        borderColor: colorCode.primary,
-                    }}
-                    buttonActiveTextStyle={{
-                        fontSize: normFonts.FONT_16,
-                        lineHeight: normFonts.FONT_20,
-                        color: colorCode.white,
-                    }}
-                    onClick={() => {}}
-                    dropShadow={true}
-                    activeGradient={[colorCode.primary, colorCode.primary, colorCode.primary]}
-                    style={{
-                        position:'absolute',
-                        bottom: normDimens.DIMEN_88,
-                        marginLeft: normDimens.DIMEN_16,
-                        zIndex: 100
-                    }}
-                />
+                buttonText={strings.Book_a_trip}
+                buttonActiveTextFontWeight={FontWeight._700}
+                buttonActiveStyle={styles.container3}
+                buttonActiveTextStyle={styles.text1}
+                onClick={() => {}}
+                dropShadow={true}
+                activeGradient={[colorCode.primary, colorCode.primary, colorCode.primary]}
+                style={styles.container4}
+            />
             <ReactNavTab.Navigator tabBar={tabBar}>
                 <ReactNavTab.Screen
                     name={NavigationRoutes.home}
@@ -194,5 +172,30 @@ const styles = StyleSheet.create({
     container1: {
         backgroundColor: colorCode.white,
         flex: 1,
+    },
+    container2: {
+        width: normDimens.SCREEN_WIDTH,
+        height: normDimens.DIMEN_80,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: colorCode.white,
+    },
+    container3: {
+        width: normDimens.DIMEN_328,
+        height: normDimens.DIMEN_40,
+        borderRadius: normDimens.DIMEN_8,
+        borderWidth: normDimens.DIMEN_2,
+        borderColor: colorCode.primary,
+    },
+    text1: {
+        fontSize: normFonts.FONT_16,
+        lineHeight: normFonts.FONT_20,
+        color: colorCode.white,
+    },
+    container4: {
+        position: 'absolute',
+        bottom: normDimens.DIMEN_88,
+        marginLeft: normDimens.DIMEN_16,
+        zIndex: 100,
     },
 });

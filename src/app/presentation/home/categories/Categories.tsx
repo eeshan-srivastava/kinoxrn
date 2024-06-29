@@ -11,39 +11,15 @@ import { HighlighItemBean } from '../../bean/HighlightBean';
 import normFonts, { FontWeight } from '../../../../resources/dimens/normFonts';
 import CategoryItemView from './CategoryItemView';
 import { CategoryItemBean } from '../../bean/CategoryBean';
+import mainJson from '../../../../data/json/mainJson';
+import strings from '../../../../resources/strings/strings';
 
 interface Props {}
 
 interface Route {}
 
 const Categories = (props: Props) => {
-    const [categories, setCategories] = useState<Array<CategoryItemBean>>([
-        {
-            id: '1',
-            title: 'Adventure',
-            deeplink: '',
-        },
-        {
-            id: '2',
-            title: 'Culinary',
-            deeplink: '',
-        },
-        {
-            id: '3',
-            title: 'Eco-tourism',
-            deeplink: '',
-        },
-        {
-            id: '4',
-            title: 'Family',
-            deeplink: '',
-        },
-        {
-            id: '5',
-            title: 'Sport',
-            deeplink: '',
-        },
-    ]);
+    const [categories, setCategories] = useState<Array<CategoryItemBean>>(mainJson.categories);
 
     const init = async () => {};
 
@@ -54,13 +30,7 @@ const Categories = (props: Props) => {
     const onClickItem = (item: CategoryItemBean) => {};
 
     const renderItem = ({ item, index }: { item: CategoryItemBean; index: number }) => {
-        return (
-            <CategoryItemView
-                item={item}
-                onClickItem={onClickItem}
-                style={{ marginBottom: normDimens.DIMEN_8 }}
-            />
-        );
+        return <CategoryItemView item={item} onClickItem={onClickItem} style={styles.container2} />;
     };
 
     const keyExtractor = (item: CategoryItemBean, index: any) => {
@@ -68,25 +38,11 @@ const Categories = (props: Props) => {
     };
 
     return (
-        <View
-            style={{
-                backgroundColor: colorCode.primary_light,
-                width: normDimens.SCREEN_WIDTH,
-                paddingTop: normDimens.DIMEN_40,
-                paddingBottom: normDimens.DIMEN_24,
-            }}>
-            <TextView
-                style={{
-                    color: colorCode.primary_dark,
-                    marginLeft: normDimens.DIMEN_16,
-                    marginBottom: normDimens.DIMEN_24,
-                    fontSize: normFonts.FONT_16,
-                    lineHeight: normFonts.FONT_20,
-                }}
-                fontWeight={FontWeight._700}>
-                {'Categories'}
+        <View style={styles.container1}>
+            <TextView style={styles.text1} fontWeight={FontWeight._700}>
+                {strings.Categories}
             </TextView>
-            <View style={{}}>
+            <View>
                 <FlatList
                     data={categories}
                     renderItem={renderItem}
@@ -103,7 +59,17 @@ export default Categories;
 
 const styles = StyleSheet.create({
     container1: {
-        backgroundColor: colorCode.white,
-        flex: 1,
+        backgroundColor: colorCode.primary_light,
+        width: normDimens.SCREEN_WIDTH,
+        paddingTop: normDimens.DIMEN_40,
+        paddingBottom: normDimens.DIMEN_24,
     },
+    text1: {
+        color: colorCode.primary_dark,
+        marginLeft: normDimens.DIMEN_16,
+        marginBottom: normDimens.DIMEN_24,
+        fontSize: normFonts.FONT_16,
+        lineHeight: normFonts.FONT_20,
+    },
+    container2: { marginBottom: normDimens.DIMEN_8 },
 });

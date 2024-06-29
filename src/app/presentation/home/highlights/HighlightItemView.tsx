@@ -4,7 +4,6 @@ import { HighlighItemBean } from '../../bean/HighlightBean';
 import ImageView from '../../widgets/imageView/ImageView';
 import { ImageResizeMode } from '../../widgets/imageView/ImageUtils';
 import normDimens from '../../../../resources/dimens/normDimens';
-import ColorUtils from '../../../../resources/colors/ColorUtils';
 import colorCode from '../../../../resources/colors/colorCode';
 import normFonts, { FontWeight } from '../../../../resources/dimens/normFonts';
 import TextView from '../../widgets/textView/TextView';
@@ -30,45 +29,18 @@ const HighlightItemView = (props: Props) => {
                 <View style={styles.container2} pointerEvents={'none'}>
                     <ImageView
                         source={item.image as any}
-                        style={{
-                            width: normDimens.DIMEN_304,
-                            height: normDimens.DIMEN_160 + normDimens.DIMEN_10,
-                        }}
+                        style={styles.container3}
                         resizeMode={ImageResizeMode.contain}
                     />
-                    <TextView
-                        style={{
-                            color: colorCode.primary,
-                            marginLeft: normDimens.DIMEN_24,
-                            marginBottom: normDimens.DIMEN_24,
-                            fontSize: normFonts.FONT_24,
-                            lineHeight: normFonts.FONT_24,
-                            marginTop: normDimens.DIMEN_20,
-                        }}
-                        fontWeight={FontWeight._700}>
+                    <TextView style={styles.text1} fontWeight={FontWeight._700}>
                         {item.title}
                     </TextView>
-                    <TextView
-                        style={{
-                            color: colorCode.primary_dark,
-                            marginLeft: normDimens.DIMEN_24,
-                            marginRight: normDimens.DIMEN_24,
-                            fontSize: normFonts.FONT_16,
-                            lineHeight: normFonts.FONT_20,
-                            marginTop: -normDimens.DIMEN_8,
-                        }}
-                        fontWeight={FontWeight._400}>
+                    <TextView style={styles.text2} fontWeight={FontWeight._400}>
                         {item.description}
                     </TextView>
                     <ImageView
                         source={imageFile.IC_BACK as any}
-                        style={{
-                            width: normDimens.DIMEN_40,
-                            height: normDimens.DIMEN_40,
-                            alignSelf: 'flex-end',
-                            marginRight: normDimens.DIMEN_24,
-                            marginTop: normDimens.DIMEN_4,
-                        }}
+                        style={styles.container4}
                         resizeMode={ImageResizeMode.contain}
                     />
                 </View>
@@ -102,5 +74,32 @@ const styles = StyleSheet.create({
         backgroundColor: colorCode.white,
         borderRadius: normDimens.DIMEN_8,
         overflow: 'hidden',
+    },
+    container3: {
+        width: normDimens.DIMEN_304,
+        height: normDimens.DIMEN_160 + normDimens.DIMEN_10,
+    },
+    text1: {
+        color: colorCode.primary,
+        marginLeft: normDimens.DIMEN_24,
+        marginBottom: normDimens.DIMEN_24,
+        fontSize: normFonts.FONT_24,
+        lineHeight: normFonts.FONT_24,
+        marginTop: normDimens.DIMEN_20,
+    },
+    text2: {
+        color: colorCode.primary_dark,
+        marginLeft: normDimens.DIMEN_24,
+        marginRight: normDimens.DIMEN_24,
+        fontSize: normFonts.FONT_16,
+        lineHeight: normFonts.FONT_20,
+        marginTop: -normDimens.DIMEN_8,
+    },
+    container4: {
+        width: normDimens.DIMEN_40,
+        height: normDimens.DIMEN_40,
+        alignSelf: 'flex-end',
+        marginRight: normDimens.DIMEN_24,
+        marginTop: normDimens.DIMEN_4,
     },
 });

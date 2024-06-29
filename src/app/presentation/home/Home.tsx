@@ -29,11 +29,8 @@ const Home = (props: Props) => {
 
     return (
         <ScrollView style={styles.container1}>
-            <View style={{ backgroundColor: colorCode.white, width: normDimens.SCREEN_WIDTH }}>
-                <ImageView
-                    style={{ width: normDimens.DIMEN_360, height: normDimens.DIMEN_480 }}
-                    source={imageFile.IMG_HOME}
-                />
+            <View style={styles.container2}>
+                <ImageView style={styles.container3} source={imageFile.IMG_HOME} />
                 <Highlights />
                 <Categories />
                 <TravelGuide />
@@ -49,19 +46,6 @@ const styles = StyleSheet.create({
         backgroundColor: colorCode.white,
         flex: 1,
     },
-    container2: {
-        marginVertical: normDimens.DIMEN_16,
-        width: normDimens.DIMEN_32,
-        height: normDimens.DIMEN_32,
-    },
-    container3: {
-        width: normDimens.DIMEN_32,
-        height: normDimens.DIMEN_32,
-        marginVertical: normDimens.DIMEN_16,
-    },
-    container5: {
-        width: normDimens.SCREEN_WIDTH,
-        height: normDimens.DIMEN_80,
-        alignItems: 'center',
-    },
+    container2: { backgroundColor: colorCode.white, width: normDimens.SCREEN_WIDTH },
+    container3: { width: normDimens.DIMEN_360, height: normDimens.DIMEN_480 },
 });
