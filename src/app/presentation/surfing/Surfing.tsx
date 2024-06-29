@@ -1,27 +1,12 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
-import React, { useEffect, useState } from 'react';
-import { FlatList, StyleSheet, TouchableOpacity, View } from 'react-native';
-import SafeArea from '../widgets/SafeArea';
+import React, { useEffect } from 'react';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import colorCode from '../../../resources/colors/colorCode';
-import PageStateComponent from '../widgets/pageState/PageStateComponent';
-import DefaultErrorView from '../widgets/view/DefaultErrorView';
-import DefaultLoadingView from '../widgets/view/DefaultLoadingView';
-import { MasonryFlashList } from '@shopify/flash-list';
-import { PageStateType } from '../widgets/pageState/PageStateUtils';
-import strings from '../../../resources/strings/strings';
-import { PaginationStateType } from '../../utils/PaginationUtils';
-import { PhotoItemBean, toPhotoItemBean } from '../bean/PhotoBean';
-import { PhotosRC } from '../../../domain/model/photos/PhotosRC';
-import { photoUseCase } from '../../../domain/usecase';
-import { PhotoItemContent } from '../../../domain/model/photos/PhotosContent';
-import { getApiErrorMessageFromError } from '../../../utils/AppUtils';
-import PhotoItemView from '../common/PhotoItemView';
 import normDimens from '../../../resources/dimens/normDimens';
-import { ActivityIndicator } from 'react-native-paper';
-import EditText from '../widgets/textInput/EditText';
-import normFonts from '../../../resources/dimens/normFonts';
-import TextView from '../widgets/textView/TextView';
-import { SearchPhotosRC } from '../../../domain/model/photos/SearchPhotosRC';
+import ImageView from '../widgets/imageView/ImageView';
+import imageFile from '../../../resources/images/imageFile';
+import TravelGuide from '../common/TravelGuide';
+import TopSpots from './topSpots/TopSpots';
 
 interface Props {}
 
@@ -31,7 +16,7 @@ interface Route {
     };
 }
 
-const Surfing = (props: Props) => {
+const Home = (props: Props) => {
     const navigation: any = useNavigation();
     const route = useRoute() as Route;
 
@@ -41,14 +26,25 @@ const Surfing = (props: Props) => {
         init();
     }, []);
 
-    return <View style={styles.container6}></View>;
+    return (
+        <ScrollView style={styles.container1}>
+            <View style={{ backgroundColor: colorCode.white, width: normDimens.SCREEN_WIDTH }}>
+                <ImageView
+                    style={{ width: normDimens.DIMEN_360, height: normDimens.DIMEN_240 }}
+                    source={imageFile.IMG_SURFING}
+                />
+                <TopSpots/>
+                <TravelGuide style={{paddingTop: normDimens.DIMEN_40,}}/>
+            </View>
+        </ScrollView>
+    );
 };
 
-export default Surfing;
+export default Home;
 
 const styles = StyleSheet.create({
     container1: {
-        backgroundColor: colorCode.black,
+        backgroundColor: colorCode.white,
         flex: 1,
     },
     container2: {
@@ -65,35 +61,5 @@ const styles = StyleSheet.create({
         width: normDimens.SCREEN_WIDTH,
         height: normDimens.DIMEN_80,
         alignItems: 'center',
-    },
-    container6: {
-        flex: 1,
-        flexDirection: 'column',
-        backgroundColor: colorCode.white,
-    },
-    container7: {
-        flexDirection: 'row',
-        width: '100%',
-        height: normDimens.DIMEN_56,
-    },
-    container8: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: normDimens.DIMEN_40,
-        height: normDimens.DIMEN_36,
-        width: normDimens.DIMEN_80,
-        backgroundColor: colorCode.blue,
-        alignSelf: 'center',
-        marginEnd: normDimens.DIMEN_8,
-    },
-    text1: {
-        color: colorCode.white,
-    },
-    container9: {
-        flex: 1,
-        flexDirection: 'row',
-        backgroundColor: colorCode.black,
     },
 });

@@ -94,4 +94,6 @@ export default {
     DIMEN_116: normGeneral(116),
     DIMEN_74: normGeneral(74),
     DIMEN_88: normGeneral(88),
+    DIMEN_240: normGeneral(240),
+    DIMEN_63: normGeneral(63),
 };

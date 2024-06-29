@@ -4,4 +4,6 @@ export default {
     loading: 'Loading...',
     retry: 'Retry',
     back: 'Back',
+    space:' ',
+    dot:'.'
 };

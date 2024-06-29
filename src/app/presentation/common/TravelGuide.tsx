@@ -1,6 +1,6 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { FlatList, ScrollView, StyleSheet, View } from 'react-native';
+import { FlatList, ScrollView, StyleSheet, View, ViewStyle } from 'react-native';
 import colorCode from '../../../resources/colors/colorCode';
 import normDimens from '../../../resources/dimens/normDimens';
 import TextView from '../widgets/textView/TextView';
@@ -10,19 +10,22 @@ import imageFile from '../../../resources/images/imageFile';
 import { ImageResizeMode } from '../widgets/imageView/ImageUtils';
 import Button from '../widgets/button/Button';
 
-interface Props {}
+interface Props {
+    style?: ViewStyle
+}
 
 interface Route {}
 
 const TravelGuide = (props: Props) => {
+    const {style} = props
     return (
         <View
-            style={{
+            style={{...{
                 backgroundColor: colorCode.primary_light,
                 width: normDimens.SCREEN_WIDTH,
                 paddingTop: normDimens.DIMEN_8,
                 paddingBottom: normDimens.DIMEN_72,
-            }}>
+            },...style}}>
             <TextView
                 style={{
                     color: colorCode.primary_dark,
