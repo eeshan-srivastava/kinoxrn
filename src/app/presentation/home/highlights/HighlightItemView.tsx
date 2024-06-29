@@ -52,6 +52,7 @@ const HighlightItemView = (props: Props) => {
                         style={{
                             color: colorCode.primary_dark,
                             marginLeft: normDimens.DIMEN_24,
+                            marginRight: normDimens.DIMEN_24,
                             fontSize: normFonts.FONT_16,
                             lineHeight: normFonts.FONT_20,
                             marginTop: -normDimens.DIMEN_8,

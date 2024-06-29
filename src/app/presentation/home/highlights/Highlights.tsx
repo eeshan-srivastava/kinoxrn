@@ -34,7 +34,7 @@ const Highlights = (props: Props) => {
         {
             id: '3',
             image: imageFile.IMG_HIGHLIGHT_3,
-            title: 'Vulcano',
+            title: 'Vulcanoes',
             description: 'Volcanic conditions can change at any time.',
             deeplink: '',
         },

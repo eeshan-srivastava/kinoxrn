@@ -66,7 +66,7 @@ const TopSpots = (props: Props) => {
             style={{
                 backgroundColor: colorCode.white,
                 width: normDimens.SCREEN_WIDTH,
-                paddingTop: normDimens.DIMEN_40,
+                paddingTop: normDimens.DIMEN_20,
                 paddingBottom: normDimens.DIMEN_72,
             }}>
             <TextView

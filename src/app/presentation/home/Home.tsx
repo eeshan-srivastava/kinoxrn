@@ -29,7 +29,7 @@ const Home = (props: Props) => {
 
     return (
         <ScrollView style={styles.container1}>
-            <View style={{ backgroundColor: 'red', width: normDimens.SCREEN_WIDTH }}>
+            <View style={{ backgroundColor: colorCode.white, width: normDimens.SCREEN_WIDTH }}>
                 <ImageView
                     style={{ width: normDimens.DIMEN_360, height: normDimens.DIMEN_480 }}
                     source={imageFile.IMG_HOME}

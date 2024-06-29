@@ -7,6 +7,8 @@ import ImageView from '../widgets/imageView/ImageView';
 import imageFile from '../../../resources/images/imageFile';
 import TravelGuide from '../common/TravelGuide';
 import TopSpots from './topSpots/TopSpots';
+import TextView from '../widgets/textView/TextView';
+import normFonts, { FontWeight } from '../../../resources/dimens/normFonts';
 
 interface Props {}
 
@@ -33,6 +35,19 @@ const Home = (props: Props) => {
                     style={{ width: normDimens.DIMEN_360, height: normDimens.DIMEN_240 }}
                     source={imageFile.IMG_SURFING}
                 />
+                <View style={{marginTop: normDimens.DIMEN_40, marginBottom: normDimens.DIMEN_0}}>
+                    <TextView
+                        style={{
+                            color: colorCode.primary_dark,
+                            marginLeft: normDimens.DIMEN_16,
+                            marginBottom: normDimens.DIMEN_24,
+                            fontSize: normFonts.FONT_16,
+                            lineHeight: normFonts.FONT_24,
+                        }}
+                        fontWeight={FontWeight._400}>
+                        {'Hawaii is the capital of modern surfing. This group of Pacific islands gets swell from all directions, so there are plenty of pristine surf spots for all.'}
+                    </TextView>
+                </View>
                 <TopSpots/>
                 <TravelGuide style={{paddingTop: normDimens.DIMEN_40,}}/>
             </View>

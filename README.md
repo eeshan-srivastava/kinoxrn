@@ -1,6 +1,8 @@
-A sample app in React Native showcasing image gallery like kino and seraching images.
+# Kinoxrn
 
-Api has a limit of 50 request per hour.
+## Video Demo
+
+[![Watch the video](kino.png)](https://drive.google.com/file/d/1N_zButWl566e0OSbavNGJ-o9IVVYUQQY/view)
 
 To Run the app:
 
